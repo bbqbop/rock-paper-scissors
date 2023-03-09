@@ -1,0 +1,35 @@
+.body {
+    margin: 0;
+    height: 100vh;
+    background-color: mediumaquamarine;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+button {
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}    
+p {
+    text-align: center;
+}
+
+.gameover {
+    font-size: xx-large;
+    text-shadow: 10px;
+}
+
+
