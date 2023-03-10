@@ -14,7 +14,7 @@ const buttons = document.querySelectorAll('button');
   
 // DIV container
 const container = document.querySelector('.container')
-const result = document.querySelector('#result');
+const result = document.querySelector('.resultContainer');
 const counter = document.querySelector('#counter');
 
 function getComputerChoice() {
@@ -26,16 +26,16 @@ function capitalize(str) {
 function playRound(userChoice){
     let computerChoice = getComputerChoice()
     if (userChoice === computerChoice){ 
-        result.textContent = `DRAW! ${capitalize(rPs[userChoice])} vs ${capitalize(rPs[computerChoice])}`;
+        result.innerHTML = `<div class='result'>DRAW!</div><div class='resultText'>${capitalize(rPs[userChoice])} vs ${capitalize(rPs[computerChoice])}</div>`;
         drawCounter += 1;
     } else if (
         userChoice == 0 && computerChoice == 2 || 
         userChoice == 1 && computerChoice == 0 ||
         userChoice == 2 && computerChoice == 1 ){
-        result.textContent = `YOU WIN! ${capitalize(rPs[userChoice])} beats ${capitalize(rPs[computerChoice])}`;
+        result.innerHTML = `<div class='result'>WIN!</div><div class='resultText'><span id='win'>${capitalize(rPs[userChoice])}</span> vs ${capitalize(rPs[computerChoice])}</div>`;
         winCounter += 1;
    } else { 
-        result.textContent = `YOU LOSE! ${capitalize(rPs[computerChoice])} beats ${capitalize(rPs[userChoice])}`;
+        result.innerHTML = `<div class='result'>LOSE!</div><div class='resultText'>${capitalize(rPs[computerChoice])} vs <span id='win'>${capitalize(rPs[userChoice])}</span></div>`;
         loseCounter += 1;
     }
     if (winCounter === 5 || loseCounter === 5){
