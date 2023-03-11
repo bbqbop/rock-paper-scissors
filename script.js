@@ -26,16 +26,16 @@ function capitalize(str) {
 function playRound(userChoice){
     let computerChoice = getComputerChoice()
     if (userChoice === computerChoice){ 
-        result.innerHTML = `<div class='result'>DRAW!</div><div class='resultText'>${capitalize(rPs[userChoice])} vs ${capitalize(rPs[computerChoice])}</div>`;
+        result.innerHTML = `<div class='result_label'>DRAW!</div><div class='resultText'>${capitalize(rPs[userChoice])} vs ${capitalize(rPs[computerChoice])}</div>`;
         drawCounter += 1;
     } else if (
         userChoice == 0 && computerChoice == 2 || 
         userChoice == 1 && computerChoice == 0 ||
         userChoice == 2 && computerChoice == 1 ){
-        result.innerHTML = `<div class='result'>WIN!</div><div class='resultText'><span id='win'>${capitalize(rPs[userChoice])}</span> vs ${capitalize(rPs[computerChoice])}</div>`;
+        result.innerHTML = `<div class='result_label'>WIN!</div><div class='resultText'><span id='win'>${capitalize(rPs[userChoice])}</span> vs ${capitalize(rPs[computerChoice])}</div>`;
         winCounter += 1;
    } else { 
-        result.innerHTML = `<div class='result'>LOSE!</div><div class='resultText'>${capitalize(rPs[computerChoice])} vs <span id='win'>${capitalize(rPs[userChoice])}</span></div>`;
+        result.innerHTML = `<div class='result_label'>LOSE!</div><div class='resultText'>${capitalize(rPs[computerChoice])} vs <span id='win'>${capitalize(rPs[userChoice])}</span></div>`;
         loseCounter += 1;
     }
     if (winCounter === 5 || loseCounter === 5){
@@ -51,8 +51,9 @@ function gameOver (){
     if (winCounter > loseCounter
         ? result.textContent = `YOU WON` 
         : result.textContent = `YOU LOSE`);
-    const restartBtn = document.createElement('button', id='restart');
-    restartBtn.textContent = 'PLAY AGAIN';
+    const restartBtn = document.createElement('button');
+    restartBtn.classList.add('restart');
+    restartBtn.textContent = 'Play \n again?';
     container.appendChild(restartBtn);  
     restartBtn.addEventListener('click', function(){location.reload()})
     ;
